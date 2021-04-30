@@ -1,0 +1,136 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Withdraw{%  endblock %}
+{% block pageStatus3 %}active{%  endblock %}
+{% block pageIcon%}{%  endblock %}
+{% block pageName%}Withdraw{%  endblock %}
+
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+       	<div class="row">
+			<div class="card">
+            	<div class="col-md-6">
+                    <img src="static/dashboard/img/5f6f1d2a742211601117482.jpg" alt="perfect_money"style="height: 150px; width: 150px; position: relative; margin: 20px;">
+						<div class="form-group">
+							<form action="withdrawProcess" method="POST">
+								{% csrf_token %}
+								{% if error_messagepm %}
+                                <p class="bg-danger p-d ml-b" style="color: #ff0000;">{{ error_message }}</p>
+                        	    {% endif %}
+								<label for="accountNumber">Perfect money wallet</label>
+	    						<input type="text" class="form-control" name="param_ACCOUNT_NUMBER"placeholder="Your wallet">
+								<label for="amount">Amount</label>
+								<input type="number" name="amount" id="amount">
+								<input type="hidden" name="pmethod" value="pm">
+								<input type="hidden" name="account" value="U9007123">
+							    <input type="hidden" name="apiId" value="68435">
+							    <input type="hidden" name="action" value="payout">
+							    <input type="hidden" name="ps" value="1136053">
+							    <input type="hidden" name="curIn" value="USD">
+							    <input type="hidden" name="curOut" value="USD">
+								<button class="btn btn-success">Withdraw now</button>
+							</form>
+						</div>
+            	</div>
+				<div class="col-md-6">
+                    <img src="static/dashboard/img/5f6f1bc61518b1601117126.jpg" alt="payeer"style="height: 150px; width: 150px; position: relative; margin: 20px;">
+                    	<div class="form-group">
+							<form action="withdrawProcess" method="POST">
+								{% csrf_token %}
+								{% csrf_token %}
+								{% if error_messagepy %}
+                                <p class="bg-danger p-d ml-b" style="color: #ff0000;">{{ error_message }}</p>
+                        	    {% endif %}
+								<label for="accountNumber">Payeer wallet</label>
+	    						<input type="text" class="form-control" name="to"placeholder="Your wallet">
+								<label for="amount">Amount</label>
+								<input type="number" name="amount" id="amount">
+								<input type="hidden" name="pmethod" value=py">
+								<input type="hidden" name="account" value="P0464525">
+								<input type="hidden" name="apiId" value="15439">
+								<input type="hidden" name="action" value="transfer">
+								<input type="hidden" name="curIn" value="USD">
+								<input type="hidden" name="curOut" value="USD">
+								<button class="btn btn-success">Withdraw now</button>
+							</form>
+						</div>
+            </div>
+        </div>
+        	<div class="row">
+				<div class="card">
+            		<div class="col-md-6">
+                    	<img src="static/dashboard/img/5f6f1b6c02ecd1601117036.jpg" alt="coinpayments"style="height: 150px; width: 150px; position: relative; margin: 20px;">
+                    		<div class="form-group">
+							<form action="withdrawProcess" method="POST">
+								{% csrf_token %}
+								{% csrf_token %}
+								{% if error_messagecp %}
+                                <p class="bg-danger p-d ml-b" style="color: #ff0000;">{{ error_message }}</p>
+                        	    {% endif %}
+								<label for="accountNumber">Crypto wallet</label>
+	    						<input type="text" class="form-control" name="address"placeholder="Your wallet">
+								<label for="amount">Amount</label>
+								<input type="number" name="amount" id="amount">
+								<input type="hidden" name="pmethod" value="cp">
+	    						<input type="hidden" name="version" value="1">
+								<input type="hidden" name="key" value="1trdgfxfsvx">
+								<input type="hidden" name="cmd" value="create_withdrawal">
+								<input type="hidden" name="add_tx_fee" value="0">
+								<input type="hidden" name="currency2" value="USD">
+								<input type="hidden" name="ipn_url" value="https://www.harmonic-profit.com/processActivation">
+								<input type="hidden" name="cancel_url " value="https://www.harmonic-profit.com/failActivation">
+								<input type="hidden" name="success_url" value="https://www.harmonic-profit.com/succesActivation">
+								<button class="btn btn-success">Withdraw now</button>						
+						</div>
+            		</div>
+					<div class="col-md-6">
+						 <div class="header">
+                                <h4 class="title">Available cryptocurrencies</h4>
+                                <p class="category">Choose a cryptocurrency and process to payment</p>
+                            </div>
+						<div class="content">
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency" value="BTC">
+						        <span class="form-check-sign"></span>
+						        BTC
+						    </label>
+						</div>	
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency" value="ETH">
+						        <span class="form-check-sign"></span>
+						        ETH
+						    </label>
+						</div>
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency" value="LTC">
+						        <span class="form-check-sign"></span>
+						        LTC
+						    </label>
+						</div>
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency" value="DAI">
+						        <span class="form-check-sign"></span>
+						        DAI
+						    </label>
+						</div>	
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency" value="USDT">
+						        <span class="form-check-sign"></span>
+						        USDT
+						    </label>
+						</div>
+					</form>								
+					</div>
+					</div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+{%  endblock %}

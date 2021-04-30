@@ -1,0 +1,39 @@
+{% extends 'formTemplate.html' %}
+{% block title%}Login - Harmonic-profit {%  endblock %}
+{% block content %}
+<!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="static/form/images/signin-image.png" alt="sing up image"></figure>
+                        <a href="register" class="signup-image-link"><u>Create an account</u></a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Login</h2>
+                        <form action="login" method="POST" class="register-form" id="login-form">
+                            {% csrf_token %}
+							{% if error_message %}
+                            <p class="bg-danger p-d ml-b" style="color: #ff0000;">{{ error_message }}</p>
+                        	{% endif %}
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+						<div class="signin-image">
+                        	<a href="reset_password"><u>Forgot password?</u></a>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{%  endblock %}

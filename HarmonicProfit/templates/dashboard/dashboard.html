@@ -1,0 +1,103 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Dashboard{%  endblock %}
+{% block pageStatus1 %}active{%  endblock %}
+{% block pageIcon%}{%  endblock %}
+{% block pageName%}Dashboard{%  endblock %}
+
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="card">
+                  {% include "dashboard/includes/businessCard.html" %}
+               </div>
+            </div>
+		      <div class="col-md-6">
+               <div class="card" style="background-color: #aaa;">
+				<form action="apply" method="POST">
+				{% csrf_token %}
+                  <div class="form-check">
+                     <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="useLastNameFirstName" value=True {% if loggedUser.useLastNameFirstName %}checked{% else %}{% endif %}>
+                        <span class="form-check-sign"  style="color: black;">Use Last Name</span>
+                     </label>
+					   </div>
+                  <div class="form-check">
+                     <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="removeUsername" value=True {% if loggedUser.removeUsername %}checked{% else %}{% endif %}>
+                        <span class="form-check-sign"  style="color: black;">Remove Username</span>
+                     </label>
+                  </div>
+				  <div class="form-check">
+                     <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="changeGender" value=True {% if loggedUser.changeGender %}checked{% else %}{% endif %}>
+                        <span class="form-check-sign"  style="color: black;">Change Gender</span>
+                     </label>
+                  </div>
+                  <div class="footer">
+                     <hr>
+                     <div class="stats">
+                         <button type="submit" name="apply" value="apply">Apply</button>
+				</form>
+						<a href="downloadCard"><span style="color: rgb(255, 255, 255);">Download as image</span></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+		   </div>
+         <div class="row">
+               <div class="col-md-6">
+                  <div class="card">
+                       <div class="form-group">
+						    <label>Your referral link</label>
+						    <input type="text" class="form-control" disabled placeholder="" value="harmonic-profit.com/ref/{{loggedUser.username}}">
+						</div>
+                  </div>
+               </div>
+            <div class="col-md-6">
+                  <div class="card">
+                        <div class="alert alert-info" style="background-color: {% if loggedUser.accountStatus %}#8cd331{% else %}#e73c21{% endif %};">
+                           <span><h5>Account status:{% if loggedUser.accountStatus %}Active{% else %}Not active{% endif %}</h5></span>
+                        </div>
+                  </div>
+               </div>
+         </div>
+         <div class="row">
+               <div class="col-md-6">
+                  <div class="card">
+                     <div class="alert alert-info">
+                        <span><h5>Account level: {{loggedUser.sponsorshipStatus}}</h5></span>
+                     </div>
+                  </div>
+               </div>
+            <div class="col-md-6">
+                  <div class="card">
+                     <div class="alert alert-info">
+                        <span><h5>Earned on referral:   {{loggedUser.earnedFromReferral}} $</h5></span>
+                     </div>
+                  </div>
+               </div>
+         </div>
+		<div class="row">
+               <div class="col-md-6">
+                  <div class="card">
+                     <div class="alert alert-info">
+                        <span><h5>Total balance:   {{loggedUser.balance}} $</h5></span>
+                     </div>
+                  </div>
+               </div>
+            <div class="col-md-6">
+                  <div class="card">
+                     <div class="alert alert-info">
+                        <span><h5>Withdrawable balance:   {{loggedUser.withdrawableBalance}} $</h5></span>
+                     </div>
+                  </div>
+               </div>
+         </div>
+	</div>
+</div>
+
+
+{%  endblock %}

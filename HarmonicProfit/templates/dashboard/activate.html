@@ -1,0 +1,142 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Activate{%  endblock %}
+{% block pageStatus2 %}active{%  endblock %}
+{% block pageIcon%}{%  endblock %}
+{% block pageName%}Activate{%  endblock %}
+
+
+{% block content %}
+<div class="content">
+	<p class="bg-danger p-d ml-b" style="color: #ff0000;">Payment methods not available until the official launch. Gift code only</p>
+    <div class="container-fluid">
+       	<div class="row">
+			<div class="card">
+            	<div class="col-md-6">
+                    <img src="static/dashboard/img/5f6f1d2a742211601117482.jpg" alt="perfect_money"style="height: 150px; width: 150px; position: relative; margin: 20px;">
+						<div class="form-group">
+							<form action="https://perfectmoney.is/api/step1.asp" method="POST">
+								{% csrf_token %}
+								<label for="accountNumber">Perfect money wallet</label>
+	    						<input type="text" class="form-control" placeholder="Your wallet">
+								<input type="hidden" name="PAYEE_ACCOUNT" value="U9007123">
+							    <input type="hidden" name="PAYEE_NAME" value="Harmonic-profit">
+							    <input type="hidden" name="PAYMENT_AMOUNT" value="15">
+							    <input type="hidden" name="PAYMENT_UNITS" value="USD">
+							    <input type="hidden" name="STATUS_URL" value="https://www.harmonic-profit.com/processActivation">
+							    <input type="hidden" name="PAYMENT_URL" value="https://www.harmonic-profit.com/succesActivation">
+							    <input type="hidden" name="NOPAYMENT_URL" value="https://www.harmonic-profit.com/failActivation">
+								<button class="btn btn-success">Activate now</button>
+							</form>
+						</div>
+            	</div>
+				<div class="col-md-6">
+                    <img src="static/dashboard/img/5f6f1bc61518b1601117126.jpg" alt="payeer"style="height: 150px; width: 150px; position: relative; margin: 20px;">
+                    	<div class="form-group">
+							<form action="https://payeer.com/merchant/" method="POST">
+								{% csrf_token %}
+								<label for="accountNumber">Payeer wallet</label>
+	    						<input type="text" class="form-control" placeholder="Your wallet">
+								<input type="hidden" name="m_shop" value="12345">
+								<input type="hidden" name="m_orderid" value="1">
+								<input type="hidden" name="m_amount" value="15">
+								<input type="hidden" name="m_curr" value="USD">
+								<input type="hidden" name="m_desc" value="dGVzdA==">
+								<input type="hidden" name="m_sign" value="9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08">
+								<input type="hidden" name="form[ps]" value="2609">
+								<input type="hidden" name="form[curr[2609]]" value="USD">
+								<input type="hidden" name="m_params" value="">
+								<button class="btn btn-success">Activate now</button>
+							</form>
+						</div>
+            	</div>
+            </div>
+        </div>
+        	<div class="row">
+				<div class="card">
+            		<div class="col-md-6">
+                    	<img src="static/dashboard/img/5f6f1b6c02ecd1601117036.jpg" alt="coinpayments"style="height: 150px; width: 150px; position: relative; margin: 20px;">
+                    		<div class="form-group">
+							<form action="https://www.coinpayments.net/api.php" method="POST">
+								{% csrf_token %}
+	    						<input type="hidden" name="version" value="1">
+								<input type="hidden" name="key" value="1trdgfxfsvx">
+								<input type="hidden" name="cmd" value="create_transaction">
+								<input type="hidden" name="buyer_email" value="{{loggedUser.email}}">
+								<input type="hidden" name="merchant" value="606a89bb575311badf510a4a8b79a45e">
+								<input type="hidden" name="currency1" value="USD">
+								<input type="hidden" name="amount" value="15">
+								<input type="hidden" name="ipn_url" value="https://www.harmonic-profit.com/processActivation">
+								<input type="hidden" name="cancel_url " value="https://www.harmonic-profit.com/failActivation">
+								<input type="hidden" name="success_url" value="https://www.harmonic-profit.com/succesActivation">
+								<button class="btn btn-success">Activate now</button>						
+						</div>
+            		</div>
+					<div class="col-md-6">
+						 <div class="header">
+                                <h4 class="title">Available cryptocurrencies</h4>
+                                <p class="category">Choose a cryptocurrency and process to payment</p>
+                            </div>
+						<div class="content">
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency2" value="BTC">
+						        <span class="form-check-sign"></span>
+						        BTC
+						    </label>
+						</div>	
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency2" value="ETH">
+						        <span class="form-check-sign"></span>
+						        ETH
+						    </label>
+						</div>
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency2" value="LTC">
+						        <span class="form-check-sign"></span>
+						        LTC
+						    </label>
+						</div>
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency2" value="DAI">
+						        <span class="form-check-sign"></span>
+						        DAI
+						    </label>
+						</div>	
+						<div class="form-check form-check-radio">
+						    <label class="form-check-label">
+						        <input class="form-check-input" type="radio" name="currency2" value="USDT">
+						        <span class="form-check-sign"></span>
+						        USDT
+						    </label>
+						</div>
+					</form>								
+					</div>
+					</div>
+                </div>
+           </div>
+		   <div class="row">
+			<div class="card">
+            	<div class="col-md-6">
+						<div class="form-group">
+							<form action="activateGiftCard" method="POST">
+								{% csrf_token %}
+								{% if message %}
+	                            <p class="bg-danger p-d ml-b" style="color: #ff0000;">{{ message }}</p>
+	                        	{% endif %}
+								<label for="code">Activate with gift code</label>
+	    						<input type="text" class="form-control" name="code" placeholder="Enter gift code">
+								<button class="btn btn-success">Activate now</button>
+							</form>
+						</div>
+            	</div>
+				<div class="col-md-6">
+                    
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+{%  endblock %}

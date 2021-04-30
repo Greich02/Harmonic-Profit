@@ -1,0 +1,22 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Invest{%  endblock %}
+{% block pageStatus2 %}active{%  endblock %}
+{% block pageIcon%}{%  endblock %}
+{% block pageName%}Test{%  endblock %}
+
+
+{% block content %}
+				<div class="col-md-6">
+						<div class="form-group">
+							<form action="test2" method="POST">
+								{% csrf_token %}
+								<label for="number">Enter number of user</label>
+	    						<input type="number" name="number" class="form-control">
+								<label for="number">Enter number of voucher</label>
+	    						<input type="number" name="number2" class="form-control">
+								<button class="btn btn-success">Launch</button>
+							</form>
+						</div>
+            	</div>
+				
+{% endblock %}

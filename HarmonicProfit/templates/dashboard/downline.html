@@ -1,0 +1,43 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Downline{%  endblock %}
+{% block pageStatus4 %}active{%  endblock %}
+{% block pageIcon%}{%  endblock %}
+{% block pageName%}Downline{%  endblock %}
+
+
+{% block content %}
+		<div class="content">
+            <div class="container-fluid">
+                <div class="row">
+					<div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Your referred downline</h4>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    	<th>Username</th>
+                                    	<th>Status</th>
+                                    	<th>Level</th>
+                                    	<th>Earned</th>
+                                    </thead>
+                                    <tbody>
+										{% for referral in referrals %}
+                                        <tr>
+                                        	<td>{{referral.username}}</td>
+                                        	<td>{% if referral.accountStatus %}Active{% else %}No Active{% endif %}</td>
+                                        	<td>{{referral.sponsorshipStatus}}</td>
+                                        	<td>{{referral.balance}}</td>
+                                        </tr>
+										{% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{%  endblock %}

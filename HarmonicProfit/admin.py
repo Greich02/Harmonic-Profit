@@ -1,0 +1,20 @@
+from django.contrib import admin
+from HarmonicProfit.models import User, ActivateDeposit, Withdrawal,  Message, Voucher, AutopoolList, Autopool1, Autopool2, Autopool3, Autopool4, Autopool5, Autopool6, Autopool7, Autopool8, Autopool9, Autopool10, PasswordReset
+
+admin.site.register(User)
+admin.site.register(ActivateDeposit)
+admin.site.register(Withdrawal)
+admin.site.register(Message)
+admin.site.register(Voucher)
+admin.site.register(AutopoolList)
+admin.site.register(Autopool1)
+admin.site.register(Autopool2)
+admin.site.register(Autopool3)
+admin.site.register(Autopool4)
+admin.site.register(Autopool5)
+admin.site.register(Autopool6)
+admin.site.register(Autopool7)
+admin.site.register(Autopool8)
+admin.site.register(Autopool9)
+admin.site.register(Autopool10)
+admin.site.register(PasswordReset)

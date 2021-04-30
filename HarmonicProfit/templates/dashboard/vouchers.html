@@ -1,0 +1,27 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Vouchers{% endblock %}
+{% block pageStatus5 %}active{% endblock %}
+{% block pageIcon%}{% endblock %}
+{% block pageName%}Your Vouchers{% endblock %}
+
+
+{% block content %}
+<div class="content">
+	<div class="container-fluid">
+    	<div class="row">
+			{% if v %}
+			{% for voucher in vouchers%}
+			<div class="col-md-6">
+                <div class="card" style="height: 300px; width: 100%; position: relative; margin: 20px;">
+                    {% include "dashboard/includes/voucher.html" %}
+                </div>
+            </div>
+			{% endfor %}
+			{% else %}<div class="header">
+           		 		<h4 class="title">You have no voucher available yet</h4>
+            		</div>
+			{% endif %}
+        </div>
+	</div>
+</div>
+{%  endblock %}

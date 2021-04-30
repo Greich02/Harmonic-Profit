@@ -1,0 +1,15 @@
+{% extends "dashboard/dashboardTemplate.html" %}
+{% block title %}Test{%  endblock %}
+{% block pageIcon%}{%  endblock %}
+
+
+{% block content %}
+				<ul>
+					{% for i in data %}
+					<li>Username:{{data.i.username}}</li>
+					<li>Password:{{data.i.password}}</li>
+					<li>Level:{{data.i.level}}</li>
+				</ul>
+		{% endfor %}
+
+{% endblock %}
